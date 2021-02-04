@@ -15,7 +15,7 @@ const productSchema = new Schema({
         required: true
     },
     expiryDate: {
-        type: String,
+        type: Date,
         required: true
     }
 });

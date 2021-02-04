@@ -8,6 +8,7 @@ const router = express.Router();
 
 //  GET /feed/posts/
 router.get('/products', shopController.getProducts);
+router.get('/sorted-products', shopController.getSortedProducts);
 router.get('/product/:productId', shopController.getProduct);
 
 // POST requrest

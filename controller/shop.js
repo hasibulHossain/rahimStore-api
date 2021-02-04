@@ -23,6 +23,24 @@ exports.getProducts = (req, res, next) => {
         })
 }
 
+exports.getSortedProducts = (req, res, next) => {
+    console.log('i am running from sorted>>>>')
+    Product.find()
+        .sort({ expiryDate: 1 })
+        .then(products => {
+            res.status(200).json({
+                message: 'product fetch successfully',
+                products: products
+            })
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err)
+        })
+}
+
 exports.getProduct = (req, res, next) => {
     const productId = req.params.productId;
 
